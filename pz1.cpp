@@ -18,13 +18,11 @@ public:
 	friend ArrayClass operator + (ArrayClass, ArrayClass);
 	friend ArrayClass operator - (ArrayClass, ArrayClass);
 };
-
 ArrayClass::ArrayClass(int razmer)
 {
 	this->razmer = razmer;
 	a = new int[razmer];
 }
-
 ArrayClass::ArrayClass(const ArrayClass& ac)
 {
 	razmer = ac.razmer;
@@ -35,28 +33,23 @@ ArrayClass::ArrayClass(const ArrayClass& ac)
 		a[i] = ac.a[i];
 	}
 }
-
 ArrayClass::~ArrayClass()
 {
 	delete[] a;
 }
-
 void ArrayClass::print()
 {
 	for (int i = 0; i < razmer; i++) cout << p[i] << " ";
 	cout << endl;
 }
-
 void ArrayClass::push_back(int val)
 {
 	int* new_mas = new int[razmer + 1];
 	memcpy(new_mas, a, razmer*sizeof(int));
 	new_mas[razmer] = val;
-
 	razmer++;
 	a = new_mas;
 }
-
 void ArrayClass::set(int pos, int val)
 {
 	if (pos < 0 || pos >= razmer)
@@ -71,7 +64,6 @@ void ArrayClass::set(int pos, int val)
 	}
 	else a[pos] = val;
 }
-
 int ArrayClass::get(int pos)
 {
 	if (pos < 0 || pos >= razmer)
@@ -81,7 +73,6 @@ int ArrayClass::get(int pos)
 	}
 	else return a[pos];
 }
-
 ArrayClass operator + (ArrayClass ac1, ArrayClass ac2)
 {
 	int min_razmer = ((ac1.razmer < ac2.razmer) ? ac1.razmer : ac2.razmer);
@@ -90,7 +81,6 @@ ArrayClass operator + (ArrayClass ac1, ArrayClass ac2)
 	
 	return out;
 }
-
 ArrayClass operator - (ArrayClass ac1, ArrayClass ac2)
 {
 	int min_razmer = ((ac1.razmer < ac2.razmer) ? ac1.razmer : ac2.razmer);
@@ -99,7 +89,6 @@ ArrayClass operator - (ArrayClass ac1, ArrayClass ac2)
 
 	return out;
 }
-
 int main()
 {
 	ArrayClass ac1(3);
