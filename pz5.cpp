@@ -22,7 +22,6 @@ public:
         head->nextval = nullptr;
         head->prevval= nullptr;
     }
-
     Container(const Container& other) { 
         s* n = other.head;
         while (n->nextval != nullptr) {
@@ -31,7 +30,6 @@ public:
         }
         this->head->add(n->val);
     }
-
    void add(T value) {
         s* n = head;
         s* a = new s;
@@ -69,8 +67,7 @@ public:
                     head = a;
             }
             else a->x++;
-        }
-            
+        }       
     }
    void see() {
        s* n = head;
@@ -90,8 +87,6 @@ public:
         delete head;
     }
 };
-
-
 int main()
 {
    Container < string > mycont("xyz");
